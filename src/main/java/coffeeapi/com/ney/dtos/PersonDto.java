@@ -1,6 +1,5 @@
 package coffeeapi.com.ney.dtos;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import lombok.Data;
@@ -8,15 +7,14 @@ import lombok.Data;
 @Data
 public class PersonDto {
 	
-	@NotBlank
+	@Size(max = 60)
 	private String name;
 	 
-	@NotBlank
-	@Size(max = 11)
-	@org.hibernate.validator.constraints.br.CPF
+	
+	@Size(max = 11)	
 	private String CPF;
 	
-	@NotBlank
+	
 	@Size(max = 60)
 	private String food;
 

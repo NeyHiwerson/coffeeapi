@@ -1,5 +1,7 @@
 package coffeeapi.com.ney.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
@@ -23,6 +25,12 @@ public class PersonService {
 	public Person save(Person personModel) {
 		
 		return personRepository.save(personModel);
+	}
+
+
+	public List<Person> findAll() {
+		
+		return personRepository.findAll();
 	}
 
 }
