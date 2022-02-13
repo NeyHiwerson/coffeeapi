@@ -1,6 +1,7 @@
 package coffeeapi.com.ney.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.transaction.Transactional;
 
@@ -31,6 +32,12 @@ public class PersonService {
 	public List<Person> findAll() {
 		
 		return personRepository.findAll();
+	}
+
+
+	public Optional<Person> findById(Long id) {
+		
+		return personRepository.findById(id);
 	}
 
 }

@@ -1,6 +1,7 @@
 package coffeeapi.com.ney.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -45,6 +46,17 @@ public class PersonController {
 	@GetMapping
 	public ResponseEntity<List<Person>> getAllPersons(){
 		return ResponseEntity.status(HttpStatus.OK).body(personService.findAll());
+	}
+	
+	@GetMapping("/{id}")
+	public ResponseEntity<Object> getOnePerson(@PathVariable(value = "id") Long id){
+		
+		Optional<Person> personOptional = personService.findById(id);
+		
+		if (!personOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Person not found.");
+		}
+		return ResponseEntity.status(HttpStatus.OK).body(personOptional.get());
 	}
 	
 	
