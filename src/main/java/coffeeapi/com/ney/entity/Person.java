@@ -31,5 +31,8 @@ public class Person {
 	@Column(nullable = false, unique = true)
 	private String food;
 	
+	
+
+		
 
 }
