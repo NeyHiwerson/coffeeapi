@@ -40,4 +40,10 @@ public class PersonService {
 		return personRepository.findById(id);
 	}
 
+
+	@Transactional
+	public void delete(Person person) {
+		personRepository.delete(person);
+	}
+
 }
