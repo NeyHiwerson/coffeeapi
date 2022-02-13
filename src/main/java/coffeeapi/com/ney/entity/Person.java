@@ -22,13 +22,13 @@ public class Person {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false, length = 60)
+	@Column( length = 60)
 	private String name;
 	 
-	@Column(nullable = false, unique = true, length = 11)
+	@Column(unique = true, length = 11)
 	private String CPF;
 	
-	@Column(nullable = false, unique = true, length = 60)
+	@Column(unique = true, length = 60)
 	private String food;
 	
 	
