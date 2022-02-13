@@ -73,8 +73,30 @@ public class PersonController {
 		
 	}
 	
-	
-	
+	@PutMapping("/{id}")
+	public ResponseEntity<Object> updatePerson(@PathVariable(value = "id") Long id,
+											@RequestBody @Valid PersonDto personDto){
+		
+		Optional<Person> personOptional = personService.findById(id);
+		if (!personOptional.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Person not found.");
+		}
+		
+		var personModel01 =  personOptional.get();
+		
+		personModel01.setName(personDto.getName());
+		personModel01.setCPF(personDto.getCPF());
+		personModel01.setFood(personDto.getFood());
+		
+		
+		
+		//BeanUtils.copyProperties(personDto, personModel01);
+		
+		
+		
+		
+		return ResponseEntity.status(HttpStatus.OK).body(personService.save(personModel01));
+	}
 	
 	
 	
